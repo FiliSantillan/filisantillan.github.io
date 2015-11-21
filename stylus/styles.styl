@@ -1,0 +1,148 @@
+// Imports
+@import normalize
+
+// Variables
+$fontTablet = 18px
+
+//Mixin
+retina(file, ext)
+	background url(file'.'ext) no-repeat
+	background-size cover
+	@media(-webkit-min-device-pixel-ratio: 2),
+		(min-device-pixel-ratio: 2),
+		(min-resolution: 192dpi),
+		(min-resolution: 2dppx)
+		background-image url(file'@2x.'ext)
+
+//Default styles
+body
+	color white
+	font-family 'Raleway' sans-serif
+	
+figure
+	margin 0
+	
+h1
+	text-transform uppercase
+	letter-spacing 4px
+	font-size 2rem
+	
+a
+	text-decoration none
+	
+//Container
+.container
+	display flex
+	justify-content center
+	align-items center
+	width 100vw
+	height 100vh
+	retina("../img/cover", jpg)
+	
+//Information
+.info
+	//Avatar
+	&Avatar
+		text-align center
+		
+		.img
+			border-radius 50%
+			border 3px solid white
+			
+	//Social icons	
+	&Social
+		list-style none
+		padding 0
+		margin 0
+		display flex
+		justify-content space-around
+		flex-wrap wrap
+		
+		//Icons
+		&Item
+			text-align center
+			margin 1rem 0.5rem
+			box-sizing border-box
+			width 20%
+		
+//Icons (links)
+.icon
+	font-size 2.5rem !important
+	color white
+	
+//Button
+.btn
+	padding 0.5rem
+	display inline-block
+	text-transform uppercase
+	letter-spacing 3px
+	background white
+	opacity 0.8
+	color black
+
+	transition 0.3s
+	
+	i
+		margin 0 0.3rem 0 0
+	
+	&:hover
+		transform scale(1.2)
+		background white
+		opacity 1
+
+//Tablets
+@media all and (min-width 769px)
+	html
+		font-size $fontTablet
+		
+	//Information
+	.info
+		//Social icons	
+		&Social
+			//Icons
+			&Item
+				width 70px
+				height 70px
+				line-height 80px
+				transform rotate(45deg)
+				margin 2rem
+				transition 0.3s
+				box-shadow 8px 8px 1px rgba(white,0.8)
+				
+				//Codepen
+				&:first-child
+					background #131313
+					opacity 0.8
+				//Facebook
+				&:nth-child(2)
+					background #3b5998
+					opacity 0.8
+				//Twitter
+				&:nth-child(3)
+					background #00aced
+					opacity 0.8
+				//Instagram
+				&:nth-child(4)
+					background #125688
+					opacity 0.8
+				//Linkedin
+				&:nth-child(5)
+					background #007bb5
+					opacity 0.8
+				//Github
+				&:last-child
+					background #333333
+					opacity 0.8
+					
+				&:hover
+					transform scale(1.2)
+					box-shadow none
+					opacity 1
+					
+					.icon
+						transform rotate(0deg)
+						transition 0.3s
+		//Icons (links)
+		.icon
+			transform rotate(-45deg)
+			font-size 2rem !important
